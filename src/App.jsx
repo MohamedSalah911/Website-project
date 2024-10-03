@@ -2,6 +2,7 @@
 import { Banner } from "./components/billboards/banner"
 import getBillboard from "../lib/get-billboard";
 import {useEffect, useState} from 'react'
+import Cards from "./components/cards/Cards";
 
   function  App() {
     //* this is how you can get any data 
@@ -23,13 +24,29 @@ import {useEffect, useState} from 'react'
      }, []);
  
   return (
+    <>
+    <h1>Website</h1>
     <div className="">
     {/*//TODO: create the navBar
       
     */
     }      
+      
       <Banner billboard={billboard} />
+    <h1 className="cards-title">Featured</h1>
+    <div className="card-container">
+      <Cards/>
+      <Cards/>
+      <Cards/>
+      <Cards/>
+      <Cards/>
+      <Cards/>
+      <Cards/>
+      <Cards/>
+      <Cards/>
     </div>
+    </div>
+    </>
   )
  
   
