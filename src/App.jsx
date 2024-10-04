@@ -25,7 +25,6 @@ import Cards from "./components/cards/Cards";
  
   return (
     <>
-    <h1>Website</h1>
     <div className="">
     {/*//TODO: create the navBar
       
@@ -35,9 +34,6 @@ import Cards from "./components/cards/Cards";
       <Banner billboard={billboard} />
     <h1 className="cards-title">Featured</h1>
     <div className="card-container">
-      <Cards/>
-      <Cards/>
-      <Cards/>
       <Cards/>
       <Cards/>
       <Cards/>
