@@ -1,0 +1,61 @@
+.navbar {
+    background-color: #333;
+    /* dark gray background */
+    color: #fff;
+    /* white text */
+    padding: 10px;
+    display: flex;
+    /* horizontal layout */
+    justify-content: space-between;
+    /* evenly spaced items */
+}
+
+.navbar-brand {
+    font-size: 24px;
+    /* larger font size for brand logo */
+    margin-right: 20px;
+    /* add some space between brand and navigation */
+}
+
+.navbar-nav {
+    list-style: none;
+    /* remove default list styling */
+    margin: 0;
+    /* remove default margin */
+    padding: 0;
+    /* remove default padding */
+}
+
+.navbar-nav li {
+    display: inline-block;
+    /* inline-block for horizontal layout */
+    margin-right: 20px;
+    /* add some space between items */
+}
+
+.navbar-nav a {
+    color: #fff;
+    /* white text */
+    text-decoration: none;
+    /* remove underline */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+
+    /* tablet and mobile screens */
+    .navbar {
+        flex-direction: column;
+        /* vertical layout */
+    }
+
+    .navbar-nav {
+        display: none;
+        /* hide navigation items */
+    }
+
+    .hamburger {
+        display: block;
+        /* show hamburger icon */
+    }
+}
