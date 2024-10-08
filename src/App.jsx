@@ -54,9 +54,13 @@ import { Cart } from "./components/cart/Cart";
  
   return (
     <>
+
          <Toaster richColors  />
 
     <RouterProvider router={router}/>
+  
+    {/* <RouterProvider router={router}/> */}
+  
     </>
   )
  
