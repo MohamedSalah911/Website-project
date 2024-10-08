@@ -1,6 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./components/Home";
 import Navbar from "./components/navbar/Navbar";
+import Category from "./components/categories/Category";
+import { useEffect, useState } from "react";
+import { Toaster, toast } from 'sonner'
+import { Cart } from "./components/cart/Cart";
 
   function  App() {
     /*********************** Moved to 'src/Home.jsx' ***********************/
@@ -30,12 +34,18 @@ import Navbar from "./components/navbar/Navbar";
       {
         path: '/',
         element: <Home/>,
-        errorElement: <>
-                        <h1>404 NOT FOUND</h1>
-                        <button>
-                          <a href="/">Go Home</a>
-                        </button>
-                      </>
+      
+                    
+      },
+   
+      {
+        path: '/categories/:categoryId',
+        element: <Category/>,
+       
+      },
+      {
+        path:"/cart",
+        element: <Cart/>,
       },
       //TODO
       //add paths and pages to the router from here:
@@ -44,9 +54,13 @@ import Navbar from "./components/navbar/Navbar";
  
   return (
     <>
-    <Navbar/>
+
+         <Toaster richColors  />
+
+    <RouterProvider router={router}/>
+  
     {/* <RouterProvider router={router}/> */}
-    <Home/>
+  
     </>
   )
  

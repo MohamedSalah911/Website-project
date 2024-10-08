@@ -2,7 +2,7 @@ import qs from 'query-string'
 
 const URL = `${import.meta.env.VITE_BACKEND_WEBSITE_API}/products`
 
-const getProducts = async(categoryId, sizeId, colorId, isFeatured, search) => {
+const getProducts = async({categoryId, sizeId, colorId, isFeatured, search}) => {
     const url = qs.stringifyUrl({
         url: URL,
         query:{

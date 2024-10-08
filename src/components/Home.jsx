@@ -2,6 +2,9 @@ import { Banner } from "./billboards/banner"
 import Cards from "./cards/Cards";
 import { useState, useEffect } from "react";
 import getBillboard from "../../lib/get-billboard.jsx";
+import Navbar from "./navbar/Navbar";
+import ProductList from "./product-list/product-list";
+import getProducts from "@/../lib/get-products";
 
 
 
@@ -19,6 +22,7 @@ export default function Home() {
 
 
     const [billboard, setBillboard] = useState();
+    const [products, setProducts] = useState([]);
     useEffect(() => {
       const getData = async()=> {
           const billboard = await getBillboard("cm0feciu50003f6otoaggci5y")
@@ -27,18 +31,26 @@ export default function Home() {
       getData()
      
      }, []);
+       useEffect(() => {
+      const getData = async()=> {
+          const products = await getProducts({isFeatured: true})
+          setProducts(products)
+   
+      }
+      getData()
+     
+     }, []);
 
     return (
         <>
+        <Navbar />
+        <div className="my-16">
             <Banner billboard={billboard} />
-            <h1 className="cards-title">Featured</h1>
-            <div className="card-container">
-                <Cards/>
-                <Cards/>
-                <Cards/>
-                <Cards/>
-                <Cards/>
-                <Cards/>
-            </div>
-        </>);
-}
+            <ProductList label="Featured" products={products} />
+         
+          
+        </div>
+     
+        
+        </>
+)} 
