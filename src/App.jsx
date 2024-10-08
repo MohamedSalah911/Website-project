@@ -45,7 +45,8 @@ import Navbar from "./components/navbar/Navbar";
   return (
     <>
     <Navbar/>
-    <RouterProvider router={router}/>
+    {/* <RouterProvider router={router}/> */}
+    <Home/>
     </>
   )
  
