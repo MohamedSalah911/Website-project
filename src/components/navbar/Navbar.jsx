@@ -36,7 +36,7 @@ function Navbar() {
         <nav className={cn(`flex z-50 fixed top-0 left-0 w-full transition ease-in-out items-center justify-between px-4 py-3 '`, scrolled ? " backdrop-blur-sm bg-white/50" : "shadow-none backdrop-blur-0 bg-white border-b")}>
          
             <ul className='flex  items-center gap-x-8'>
-                <img src='/logo.svg' className='w-8 object-cover' />
+                <a href='/'><img src='/logo.svg' className='w-8 object-cover' /></a>
             <ul className=' space-x-2'>
               {routes?.map(route => (
                 <Button  key={route.label} variant={route.active ? "default" : "outline"} >
