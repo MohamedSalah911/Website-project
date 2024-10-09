@@ -32,7 +32,7 @@ import { Cart } from "./components/cart/Cart";
     // router for navigating through pages using navbar in 'src/navbar'
     const router = createBrowserRouter([
       {
-        path: '/',
+        path: '/Website-project',
         element: <Home/>,
       
                     
