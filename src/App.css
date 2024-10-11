@@ -40,3 +40,9 @@
 .read-the-docs {
   color: #888;
 } */
+body{
+  @apply h-full
+}
+html{
+  @apply h-full
+}

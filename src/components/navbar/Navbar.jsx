@@ -28,36 +28,36 @@ function Navbar() {
     
     const routes = categories?.map(category => ({
         label: category.name,
-        href: `/categories/${category.name}`,
-        active: window.location.href === `${import.meta.env.VITE_PUBLIC_SITE_URL}categories/${category.name}`
+        href: `/categories/${category.id}`,
+        active: window.location.href === `${import.meta.env.VITE_PUBLIC_SITE_URL}categories/${category.id}`
     }))
 
     return (
         <nav className={cn(`flex z-50 fixed top-0 left-0 w-full transition ease-in-out items-center justify-between px-4 py-3 '`, scrolled ? " backdrop-blur-sm bg-white/50" : "shadow-none backdrop-blur-0 bg-white border-b")}>
          
             <ul className='flex  items-center gap-x-8'>
-                <a href='/Website-project'><img src='/logo.svg' className='w-8 object-cover' /></a>
+                <a href='/'><img loading='lazy' src='https://firebasestorage.googleapis.com/v0/b/slacknew-e82cd.appspot.com/o/logo.svg?alt=media&token=079b655f-1940-4a4b-af41-fade05d15d41' className='w-8 object-cover' /></a>
             <ul className=' space-x-2'>
               {routes?.map(route => (
+                    <Link to={route.href}>
                 <Button  key={route.label} variant={route.active ? "default" : "outline"} >
              
-                    <Link to={route.href}>
 
                     {route.label}
-                    </Link>
                 
                 </Button>
+                    </Link>
               ))}
             </ul>
             </ul>
             <ul>
-                <Button  className="gap-x-2" variant={"default"}>
                     <Link className='flex items-center gap-x-2' to={'/cart'}>
+                <Button  className="gap-x-2" variant={"default"}>
 
                     <ShoppingCart className='w-4 h-4' />
                     <span>{cart?.length ? cart?.length : 0}</span>
-                    </Link>
                 </Button>
+                    </Link>
             </ul>
            
         </nav>
