@@ -5,6 +5,8 @@ import Category from "./components/categories/Category";
 import { useEffect, useState } from "react";
 import { Toaster, toast } from 'sonner'
 import { Cart } from "./components/cart/Cart";
+import   Error  from "./components/error-page/Error";
+import { ProductPage } from "./components/products/productPage";
 
   function  App() {
     /*********************** Moved to 'src/Home.jsx' ***********************/
@@ -34,7 +36,7 @@ import { Cart } from "./components/cart/Cart";
       {
         path: '/',
         element: <Home/>,
-      
+      errorElement:<Error />
                     
       },
    
@@ -42,10 +44,19 @@ import { Cart } from "./components/cart/Cart";
         path: '/categories/:categoryId',
         element: <Category/>,
        
+      errorElement:<Error />
       },
       {
         path:"/cart",
         element: <Cart/>,
+
+      errorElement:<Error />
+      },
+      {
+        path:"/products/:productId",
+        element: <ProductPage/>,
+
+     
       },
       //TODO
       //add paths and pages to the router from here:
