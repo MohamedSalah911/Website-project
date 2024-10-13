@@ -34,7 +34,7 @@ navigate(`${url}`)
     return (
       <AccordionItem  value={paramKey}>
         <AccordionTrigger className="font-semibold px-3" >{name}  </AccordionTrigger>
-        <AccordionContent className="space-x-2 px-2">
+        <AccordionContent className="space-x-2 space-y-2 px-2">
         {data?.map(item => (
             <Button key={item.id} variant={existingSearch === item.id ? "default": "outline"} onClick={() => addFilter(item.id)}>
 {item.name}
