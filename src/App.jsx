@@ -55,6 +55,7 @@ import { ProductPage } from "./components/products/productPage";
       {
         path:"/products/:productId",
         element: <ProductPage/>,
+        errorElement: <Error />
 
      
       },

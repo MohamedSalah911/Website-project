@@ -10,6 +10,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
+import { Magnifier } from "./magnifier"
 
 
 export const SlideShow = ({images}) => {
@@ -31,7 +32,7 @@ export const SlideShow = ({images}) => {
               <Card>
                 <CardContent className="flex aspect-square items-center justify-center p-6">
                   <div className="w-40 h-40 aspect-square relative overflow-hidden">
-                    <img src={image?.url} className="w-full h-full object-cover" alt="Product image" />
+                <Magnifier image={image?.url} />
                   </div>
                 </CardContent>
               </Card>

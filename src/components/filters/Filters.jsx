@@ -38,7 +38,7 @@ useEffect(() => {
     return (
         <>
         <Sidebar colorId="colorId" sizeId="sizeId" size="size" color="color" colorsData={colors} sizesData={sizes} />
-            <div className="w-56  shadow-sm py-20 hidden md:flex flex-col space-y-2 ">
+            <div className="w-56  shadow-sm py-20  hidden md:flex flex-col space-y-2 ">
                     <Accordion type="multiple" collapsible className="w-full">
 
                 <Filter paramKey="colorId" name="color" data={colors} />

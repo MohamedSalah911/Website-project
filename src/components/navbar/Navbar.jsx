@@ -21,7 +21,7 @@ import {
 } from './animations';
 
 function Navbar() {
-  const dispatch = useDispatch();
+
   const location = useLocation();
   const scrolled = useScroll();
 
@@ -72,9 +72,9 @@ function Navbar() {
       <ul className="flex items-center gap-x-8">
         <Link to="/">
           <motion.img
-            src="https://firebasestorage.googleapis.com/v0/b/slacknew-e82cd.appspot.com/o/logo.svg?alt=media&token=079b655f-1940-4a4b-af41-fade05d15d41"
+          src='https://firebasestorage.googleapis.com/v0/b/slacknew-e82cd.appspot.com/o/digimart-removebg-new-edit.png?alt=media&token=614d5a77-e41e-4ed3-9340-7b679f3a9d4d'
             alt="Logo"
-            className="w-8 object-cover"
+            className="w-10 object-cover"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}

@@ -6,6 +6,8 @@ import getProducts from '@/../lib/get-products';
 import {  Loader2 } from 'lucide-react';
 import ProductList from './product-list/product-list';
 import { motion } from 'framer-motion';
+import { Skeleton } from './ui/skeleton';
+import { Footer } from './footer/Footer';
 
 export default function Home() {
   // State variables
@@ -19,34 +21,7 @@ export default function Home() {
   // Error states
   const [errorBillboard, setErrorBillboard] = useState(null);
   const [errorProducts, setErrorProducts] = useState(null);
-// Animation variants for different components
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2, // Stagger the animation of child components
-    },
-  },
-};
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: { duration: 0.5 },
-  },
-};
-
-const bannerVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: { duration: 0.8 },
-  },
-};
   // Fetch Billboard Data
   useEffect(() => {
     const fetchBillboard = async () => {
@@ -93,7 +68,7 @@ const bannerVariants = {
         {/* Billboard Section */}
         {loadingBillboard ? (
           <div className="flex justify-center items-center h-64">
-                      <Loader2 className='w-4 h-4 animate-spin' />
+                    <Skeleton className={'w-[90%] h-52 '} /> 
 
           </div>
         ) : errorBillboard ? (
@@ -121,6 +96,8 @@ const bannerVariants = {
           </div>
         )}
       </div>
+   
+ 
     </>
   );
 }

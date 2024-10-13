@@ -12,8 +12,7 @@ export const Filter = ({paramKey, name, data}) => {
     const navigate = useNavigate()
     const [searchParams] = useSearchParams()
    const location = useLocation() 
-    console.log(searchParams)
-    const existingSearch = searchParams.get(paramKey)
+     const existingSearch = searchParams.get(paramKey)
    
    const addFilter = (id) => {
     const currentSearchParams = qs.parse(searchParams.toString())
@@ -37,7 +36,7 @@ navigate(`${url}`)
         <AccordionTrigger className="font-semibold px-3" >{name}  </AccordionTrigger>
         <AccordionContent className="space-x-2 px-2">
         {data?.map(item => (
-            <Button variant={existingSearch === item.id ? "default": "outline"} onClick={() => addFilter(item.id)}>
+            <Button key={item.id} variant={existingSearch === item.id ? "default": "outline"} onClick={() => addFilter(item.id)}>
 {item.name}
             </Button>
         ))}
