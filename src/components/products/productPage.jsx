@@ -12,6 +12,8 @@ import { Button } from "../ui/button";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "@/../redux/featuers/cart/cartSlice";
 import { toast } from "sonner";
+import { formatter } from "@/lib/utils";
+import { Skeleton } from "../ui/skeleton";
 
 export const ProductPage = () => {
     const dispatch = useDispatch()
@@ -75,9 +77,36 @@ export const ProductPage = () => {
     return (
       <>
         <Navbar />
-        <div className="flex justify-center items-center h-screen">
-              <Loader2 className="w-4 h-4 animate-spin" />
+       <div className="flex flex-col space-y-4 md:flex-row py-20 justify-around gap-3 items-center w-full h-full px-4">
+          <div>
+            <Skeleton className={'w-40 h-40'} />
+          </div>
+          <div className="h-full flex flex-col w-1/2 items-start">
+            <Skeleton className={'w-20 h-4'} />
+            <p className="mt-4 space-y-3">
+             <Skeleton className={'w-60 h-4'} />
+             <Skeleton className={'w-60 h-4'} />
+             <Skeleton className={'w-28 h-4'} />
 
+            </p>
+            <ul className="flex  space-x-2 py-4">
+            <Skeleton className={'w-10 h-4'} />
+            <Skeleton className={'w-10 h-4'} />
+            <Skeleton className={'w-10 h-4'} />
+   
+
+            </ul>
+            <ul className="flex space-x-2 items-center">
+                
+            <p className=" text-xl font-bold">
+              <Skeleton className={'w-10 h-4'} />
+               
+            </p>
+            <Skeleton className={'w-24 h-6'} />
+           
+            </ul>
+            {/* Add more product details as needed */}
+          </div>
         </div>
       </>
     );
@@ -115,15 +144,16 @@ export const ProductPage = () => {
                 
             <p className=" text-xl font-bold">
                 <Badge className={'px-4 py-2'} variant={'outline'}>
-                    ${product?.price}
+                  {formatter.format(product?.price)}
+             
                 </Badge>
             </p>
             <Button className="font-semibold" variant={"outline"} onClick={() => {
                   const existingItem = cart?.find(item => item.id === product.id)
             if (existingItem) {
-              return  toast.warning("Product already exist")
+              return  toast.warning("This product is already in your cart")
             }else{
-                toast.success("Product Added")
+                toast.success("Product added to your cart! ")
             }
           dispatch(addToCart(product))
             }} >Add To cart</Button>

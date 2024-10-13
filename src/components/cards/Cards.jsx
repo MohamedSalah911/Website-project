@@ -8,7 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { useCart } from "@/../hooks/use-cart-store"
+
 import { useSelector, useDispatch } from 'react-redux'
 import { addToCart } from '@/../redux/featuers/cart/cartSlice'
 import { toast } from "sonner"
@@ -19,7 +19,7 @@ export const Cards = ({product}) => {
     const cart = useSelector((state)=> state.cart.value )
     const dispatch = useDispatch()
     const {onOpen} = useModal()
-console.log(cart)
+
     return(
       <Link to={`/products/${product.id}`}>
          <Card className="">
@@ -40,10 +40,10 @@ console.log(cart)
           e.preventDefault();
             const existingItem = cart?.find(item => item.id === product.id)
             if (existingItem) {
-              return  toast.warning("Product already exist")
+              return  toast.warning("This product is already in your cart")
             }
           dispatch(addToCart(product))
-            toast.success("Added to cart")
+            toast.success("Product added to your cart!")
         }} >Add to cart</Button>
       </CardFooter>
     </Card>

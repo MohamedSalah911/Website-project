@@ -15,6 +15,7 @@ import Navbar from '../navbar/Navbar';
 import { Badge } from '../ui/badge';
 import { formatter } from '@/lib/utils';
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import { Loader2 } from 'lucide-react';
 
 export const Cart = () => {
   const dispatch = useDispatch();
@@ -88,7 +89,7 @@ export const Cart = () => {
     dispatch(removeFromCart(item));
 
     if (cart.length > 1) {
-      toast.success(`${item.name} removed from cart.`);
+      toast.success(`Product removed from cart.`);
     } else if (cart.length === 1) {
       toast.success('Your cart is now empty.');
     }
@@ -162,7 +163,7 @@ export const Cart = () => {
                 disabled={isLoadingCheckout}
                 className="w-full"
               >
-                {isLoadingCheckout ? 'Processing...' : 'Proceed to Checkout'}
+                {isLoadingCheckout ? (<Loader2 className='w-4 h-4 animate-spin' />) : 'Proceed to Checkout'}
               </Button>
               {checkoutError && (
                 <p className="text-red-500 text-center">{checkoutError}</p>
